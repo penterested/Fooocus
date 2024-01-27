@@ -42,7 +42,7 @@
     "default_aspect_ratio": "896*1152",
     "checkpoint_downloads": {
         "AAManime.safetensors": "https://civitai.com/api/download/models/303526?type=Model&format=SafeTensor&size=full&fp=fp16",
-        "MFCGdollMix.safetensors": "https://civitai.com/api/download/models/283712"
+        "MFCGdollMix.safetensors": "https://civitai.com/api/download/models/283712?type=Model&format=SafeTensor"
     },
     "embeddings_downloads": {
         "unaestheticXLv31.safetensors": "https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/unaestheticXLv31.safetensors"
