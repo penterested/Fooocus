@@ -257,7 +257,7 @@ checkpoint_downloads = get_config_item_or_set_default(
     key='checkpoint_downloads',
     default_value={
         "AAManime.safetensors": "https://civitai.com/api/download/models/303526?type=Model&format=SafeTensor&size=full&fp=fp16"
-        "MFCGdollMix.safetensors": "https://civitai.com/api/download/models/283712"
+        "MFCGdollMix.safetensors": "https://civitai.com/api/download/models/283712?type=Model&format=SafeTensor"
 
     },
     validator=lambda x: isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items())
