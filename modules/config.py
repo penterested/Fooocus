@@ -55,7 +55,7 @@ def try_load_deprecated_user_path_config():
         replace_config('fooocus_expansion_path', 'path_fooocus_expansion')
         replace_config('temp_outputs_path', 'path_outputs')
 
-        if deprecated_config_dict.get("default_model", None) == 'juggernautXL_version6Rundiffusion.safetensors':
+        if deprecated_config_dict.get("default_model", None) == 'AAManime.safetensors':
             os.replace('user_path_config.txt', 'user_path_config-deprecated.txt')
             print('Config updated successfully in silence. '
                   'A backup of previous config is written to "user_path_config-deprecated.txt".')
@@ -153,17 +153,17 @@ def get_config_item_or_set_default(key, default_value, validator, disable_empty_
 
 default_base_model_name = get_config_item_or_set_default(
     key='default_model',
-    default_value='juggernautXL_version6Rundiffusion.safetensors',
+    default_value='AAManime.safetensors',
     validator=lambda x: isinstance(x, str)
 )
 default_refiner_model_name = get_config_item_or_set_default(
     key='default_refiner',
-    default_value='None',
+    default_value='MFCGdollMix.safetensors',
     validator=lambda x: isinstance(x, str)
 )
 default_refiner_switch = get_config_item_or_set_default(
     key='default_refiner_switch',
-    default_value=0.5,
+    default_value=0.667,
     validator=lambda x: isinstance(x, numbers.Number) and 0 <= x <= 1
 )
 default_loras = get_config_item_or_set_default(
@@ -194,12 +194,12 @@ default_loras = get_config_item_or_set_default(
 )
 default_cfg_scale = get_config_item_or_set_default(
     key='default_cfg_scale',
-    default_value=4.0,
+    default_value=7.0,
     validator=lambda x: isinstance(x, numbers.Number)
 )
 default_sample_sharpness = get_config_item_or_set_default(
     key='default_sample_sharpness',
-    default_value=2.0,
+    default_value=5.0,
     validator=lambda x: isinstance(x, numbers.Number)
 )
 default_sampler = get_config_item_or_set_default(
@@ -256,7 +256,9 @@ default_image_number = get_config_item_or_set_default(
 checkpoint_downloads = get_config_item_or_set_default(
     key='checkpoint_downloads',
     default_value={
-        "juggernautXL_version6Rundiffusion.safetensors": "https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/juggernautXL_version6Rundiffusion.safetensors"
+        "AAManime.safetensors": "https://civitai.com/api/download/models/303526?type=Model&format=SafeTensor&size=full&fp=fp16"
+        "MFCGdollMix.safetensors": "https://civitai.com/api/download/models/283712"
+
     },
     validator=lambda x: isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items())
 )
@@ -264,12 +266,20 @@ lora_downloads = get_config_item_or_set_default(
     key='lora_downloads',
     default_value={
         "sd_xl_offset_example-lora_1.0.safetensors": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_offset_example-lora_1.0.safetensors"
+        "r1ge-anime.safetensors": "https://civitai.com/api/download/models/124492"
+        "SXZ-niji.safetensors": "https://civitai.com/api/download/models/81031?type=Model&format=SafeTensor"
     },
     validator=lambda x: isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items())
 )
 embeddings_downloads = get_config_item_or_set_default(
     key='embeddings_downloads',
-    default_value={},
+    default_value={
+        "unaestheticXLv31.safetensors": "https://huggingface.co/lllyasviel/fav_models/resolve/main/fav/unaestheticXLv31.safetensors"
+        "NegativeXL.safetensors": "https://civitai.com/api/download/models/134583"
+
+
+        
+    },
     validator=lambda x: isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items())
 )
 available_aspect_ratios = get_config_item_or_set_default(
